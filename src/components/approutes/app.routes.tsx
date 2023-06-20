@@ -1,0 +1,18 @@
+import { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+
+const Home = lazy(() => import("../home/home.js"));
+const List = lazy(() => import("../list/list.js"));
+const Register = lazy(() => import("../register/register.js"));
+
+export function AppRoutes() {
+  return (
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/user" element={<List></List>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+      </Routes>
+    </Suspense>
+  );
+}
